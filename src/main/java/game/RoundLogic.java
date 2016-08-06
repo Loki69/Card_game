@@ -6,7 +6,7 @@ public interface RoundLogic {
     public void healMonster();
     public void summon();
     public void preparToFight();
-    public void Fight();
+    public void fight();
     public void searchDead();
     public boolean findeWiner();
 }
