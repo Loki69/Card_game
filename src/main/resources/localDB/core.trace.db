@@ -1,0 +1,329 @@
+2016-08-03 20:19:25 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Неизвестный тип данных: "ATTACK"
+Unknown data type: "ATTACK"; SQL statement:
+CREATE TABLE CARDS(ID INT PRIMARY KEY,
+ NAME VARCHAR(255),
+ INT ATTACK,
+ INT PROTECTION,
+ INT PRICE
+) [50004-192]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.command.Parser.parseColumnWithType(Parser.java:4079)
+	at org.h2.command.Parser.parseColumnForTable(Parser.java:3937)
+	at org.h2.command.Parser.parseCreateTable(Parser.java:5972)
+	at org.h2.command.Parser.parseCreate(Parser.java:4237)
+	at org.h2.command.Parser.parsePrepared(Parser.java:362)
+	at org.h2.command.Parser.parse(Parser.java:317)
+	at org.h2.command.Parser.parse(Parser.java:289)
+	at org.h2.command.Parser.prepareCommand(Parser.java:254)
+	at org.h2.engine.Session.prepareLocal(Session.java:560)
+	at org.h2.engine.Session.prepareCommand(Session.java:501)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1202)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:170)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:158)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1388)
+	at org.h2.server.web.WebApp.query(WebApp.java:1061)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1023)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1010)
+	at org.h2.server.web.WebThread.process(WebThread.java:164)
+	at org.h2.server.web.WebThread.run(WebThread.java:89)
+	at java.lang.Thread.run(Unknown Source)
+2016-08-05 06:32:41 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Синтаксическая ошибка в выражении SQL "CREATE TABLE CARDS(
+            ID INT PRIMARY KEY  NOT NULL AUTO_INCREMENT[*],
+            NAME VARCHAR(255),
+            ATTACK INT,
+            PROTECTION INT,
+            PRICE INT)"; ожидалось "CHECK, REFERENCES, ,, )"
+Syntax error in SQL statement "CREATE TABLE CARDS(
+            ID INT PRIMARY KEY  NOT NULL AUTO_INCREMENT[*],
+            NAME VARCHAR(255),
+            ATTACK INT,
+            PROTECTION INT,
+            PRICE INT)"; expected "CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE CARDS(
+            ID INT PRIMARY KEY  NOT NULL AUTO_INCREMENT,
+            NAME VARCHAR(255),
+            ATTACK INT,
+            PROTECTION INT,
+            PRICE INT) [42001-192]
+2016-08-05 06:32:41 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Синтаксическая ошибка в выражении SQL "CREATE TABLE SETS(
+            ID INT PRIMARY KEY NOT NULL AUTO_INCREMENT[*],
+            NAME VARCHAR(255))"; ожидалось "CHECK, REFERENCES, ,, )"
+Syntax error in SQL statement "CREATE TABLE SETS(
+            ID INT PRIMARY KEY NOT NULL AUTO_INCREMENT[*],
+            NAME VARCHAR(255))"; expected "CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE SETS(
+            ID INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+            NAME VARCHAR(255)) [42001-192]
+2016-08-05 06:32:41 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "SETS" не найдена
+Table "SETS" not found; SQL statement:
+INSERT INTO SETS ('BASE') VALUES [42102-192]
+2016-08-05 06:32:41 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Синтаксическая ошибка в выражении SQL "1[*]/1/1 5 КАРТ, 2/1/2 3 КАРТЫ, 1/3/2 4 КАРТЫ, 2/4/3 2 КАРТЫ, 3/2/3 3 КАРТЫ, 4/3/4 1 КАРТА, 3/5/4 2 КАРТЫ.
+
+INSERT INTO CARDS 
+(NAME, ATTACK, PROTECTION, PRICE)
+VALUES ('King', 3, 5, 4) "
+Syntax error in SQL statement "1[*]/1/1 5 КАРТ, 2/1/2 3 КАРТЫ, 1/3/2 4 КАРТЫ, 2/4/3 2 КАРТЫ, 3/2/3 3 КАРТЫ, 4/3/4 1 КАРТА, 3/5/4 2 КАРТЫ.
+
+INSERT INTO CARDS 
+(NAME, ATTACK, PROTECTION, PRICE)
+VALUES ('King', 3, 5, 4) "; SQL statement:
+1/1/1 5 карт, 2/1/2 3 карты, 1/3/2 4 карты, 2/4/3 2 карты, 3/2/3 3 карты, 4/3/4 1 карта, 3/5/4 2 карты.
+
+INSERT INTO CARDS 
+(NAME, ATTACK, PROTECTION, PRICE)
+VALUES ('King', 3, 5, 4) [42000-192]
+2016-08-05 06:33:25 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Синтаксическая ошибка в выражении SQL "DROP TABLE CARDS
+DROP[*] TABLE SETS_CARDS "
+Syntax error in SQL statement "DROP TABLE CARDS
+DROP[*] TABLE SETS_CARDS "; SQL statement:
+Drop TABLE CARDS
+Drop TABLE SETS_CARDS [42000-192]
+2016-08-05 06:33:55 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "CARDS" не найдена
+Table "CARDS" not found; SQL statement:
+INSERT INTO CARDS
+(NAME, ATTACK, PROTECTION, PRICE)
+VALUES ('Pawn',1,1,1) [42102-192]
+2016-08-05 06:33:55 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "SETS_CARDS" не найдена
+Table "SETS_CARDS" not found; SQL statement:
+INSERT INTO SETS_CARDS
+(SETS_ID,CARDS_ID,COUNT_CARDS)
+VALUES (1,6,5) [42102-192]
+2016-08-05 06:34:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Синтаксическая ошибка в выражении SQL "CREATE TABLE CARDS(
+            ID INT PRIMARY KEY  NOT NULL AUTO_INCREMENT[*],
+            NAME VARCHAR(255),
+            ATTACK INT,
+            PROTECTION INT,
+            PRICE INT)"; ожидалось "CHECK, REFERENCES, ,, )"
+Syntax error in SQL statement "CREATE TABLE CARDS(
+            ID INT PRIMARY KEY  NOT NULL AUTO_INCREMENT[*],
+            NAME VARCHAR(255),
+            ATTACK INT,
+            PROTECTION INT,
+            PRICE INT)"; expected "CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE CARDS(
+            ID INT PRIMARY KEY  NOT NULL AUTO_INCREMENT,
+            NAME VARCHAR(255),
+            ATTACK INT,
+            PROTECTION INT,
+            PRICE INT) [42001-192]
+2016-08-05 06:34:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Синтаксическая ошибка в выражении SQL "CREATE TABLE SETS(
+            ID INT PRIMARY KEY NOT NULL AUTO_INCREMENT[*],
+            NAME VARCHAR(255))"; ожидалось "CHECK, REFERENCES, ,, )"
+Syntax error in SQL statement "CREATE TABLE SETS(
+            ID INT PRIMARY KEY NOT NULL AUTO_INCREMENT[*],
+            NAME VARCHAR(255))"; expected "CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE SETS(
+            ID INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+            NAME VARCHAR(255)) [42001-192]
+2016-08-05 06:34:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "SETS" не найдена
+Table "SETS" not found; SQL statement:
+INSERT INTO SETS ('BASE') VALUES [42102-192]
+2016-08-05 06:34:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Синтаксическая ошибка в выражении SQL "1[*]/1/1 5 КАРТ, 2/1/2 3 КАРТЫ, 1/3/2 4 КАРТЫ, 2/4/3 2 КАРТЫ, 3/2/3 3 КАРТЫ, 4/3/4 1 КАРТА, 3/5/4 2 КАРТЫ.
+
+INSERT INTO CARDS 
+(NAME, ATTACK, PROTECTION, PRICE)
+VALUES ('King', 3, 5, 4) "
+Syntax error in SQL statement "1[*]/1/1 5 КАРТ, 2/1/2 3 КАРТЫ, 1/3/2 4 КАРТЫ, 2/4/3 2 КАРТЫ, 3/2/3 3 КАРТЫ, 4/3/4 1 КАРТА, 3/5/4 2 КАРТЫ.
+
+INSERT INTO CARDS 
+(NAME, ATTACK, PROTECTION, PRICE)
+VALUES ('King', 3, 5, 4) "; SQL statement:
+1/1/1 5 карт, 2/1/2 3 карты, 1/3/2 4 карты, 2/4/3 2 карты, 3/2/3 3 карты, 4/3/4 1 карта, 3/5/4 2 карты.
+
+INSERT INTO CARDS 
+(NAME, ATTACK, PROTECTION, PRICE)
+VALUES ('King', 3, 5, 4) [42000-192]
+2016-08-05 06:34:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "CARDS" не найдена
+Table "CARDS" not found; SQL statement:
+INSERT INTO CARDS
+(NAME, ATTACK, PROTECTION, PRICE)
+VALUES ('Queen',4,3,4) [42102-192]
+2016-08-05 06:34:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "CARDS" не найдена
+Table "CARDS" not found; SQL statement:
+INSERT INTO CARDS
+(NAME, ATTACK, PROTECTION, PRICE)
+VALUES ('Rook',3,2,3) [42102-192]
+2016-08-05 06:34:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "CARDS" не найдена
+Table "CARDS" not found; SQL statement:
+INSERT INTO CARDS
+(NAME, ATTACK, PROTECTION, PRICE)
+VALUES ('Bishop',2,4,3) [42102-192]
+2016-08-05 06:34:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "CARDS" не найдена
+Table "CARDS" not found; SQL statement:
+INSERT INTO CARDS
+(NAME, ATTACK, PROTECTION, PRICE)
+VALUES ('Knight',2,1,2) [42102-192]
+2016-08-05 06:34:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "CARDS" не найдена
+Table "CARDS" not found; SQL statement:
+INSERT INTO CARDS
+(NAME, ATTACK, PROTECTION, PRICE)
+VALUES ('Pawn',1,1,1) [42102-192]
+2016-08-05 06:36:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Синтаксическая ошибка в выражении SQL "CREATE TABLE CARDS(
+            ID INT PRIMARY KEY  NOT NULL AUTO_INCREMENT[*],
+            NAME VARCHAR(255),
+            ATTACK INT,
+            PROTECTION INT,
+            PRICE INT)"; ожидалось "CHECK, REFERENCES, ,, )"
+Syntax error in SQL statement "CREATE TABLE CARDS(
+            ID INT PRIMARY KEY  NOT NULL AUTO_INCREMENT[*],
+            NAME VARCHAR(255),
+            ATTACK INT,
+            PROTECTION INT,
+            PRICE INT)"; expected "CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE CARDS(
+            ID INT PRIMARY KEY  NOT NULL AUTO_INCREMENT,
+            NAME VARCHAR(255),
+            ATTACK INT,
+            PROTECTION INT,
+            PRICE INT) [42001-192]
+2016-08-05 06:36:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Синтаксическая ошибка в выражении SQL "CREATE TABLE SETS(
+            ID INT PRIMARY KEY NOT NULL AUTO_INCREMENT[*],
+            NAME VARCHAR(255))"; ожидалось "CHECK, REFERENCES, ,, )"
+Syntax error in SQL statement "CREATE TABLE SETS(
+            ID INT PRIMARY KEY NOT NULL AUTO_INCREMENT[*],
+            NAME VARCHAR(255))"; expected "CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE SETS(
+            ID INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+            NAME VARCHAR(255)) [42001-192]
+2016-08-05 06:36:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "SETS_CARDS" уже существует
+Table "SETS_CARDS" already exists; SQL statement:
+CREATE TABLE SETS_CARDS(
+            SETS_ID INT,
+            CARDS_ID INT,
+            COUNT_CARDS INT
+            ) [42101-192]
+2016-08-05 06:36:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "SETS" не найдена
+Table "SETS" not found; SQL statement:
+INSERT INTO SETS ('BASE') VALUES [42102-192]
+2016-08-05 06:36:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "CARDS" не найдена
+Table "CARDS" not found; SQL statement:
+INSERT INTO CARDS 
+(ID,NAME, ATTACK, PROTECTION, PRICE)
+VALUES (1,'King', 3, 5, 4) [42102-192]
+2016-08-05 06:36:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "CARDS" не найдена
+Table "CARDS" not found; SQL statement:
+INSERT INTO CARDS
+(ID,NAME, ATTACK, PROTECTION, PRICE)
+VALUES (2,'Queen',4,3,4) [42102-192]
+2016-08-05 06:36:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "CARDS" не найдена
+Table "CARDS" not found; SQL statement:
+INSERT INTO CARDS
+(ID,NAME, ATTACK, PROTECTION, PRICE)
+VALUES (3,'Rook',3,2,3) [42102-192]
+2016-08-05 06:36:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "CARDS" не найдена
+Table "CARDS" not found; SQL statement:
+INSERT INTO CARDS
+(ID,NAME, ATTACK, PROTECTION, PRICE)
+VALUES (4,'Bishop',2,4,3) [42102-192]
+2016-08-05 06:36:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "CARDS" не найдена
+Table "CARDS" not found; SQL statement:
+INSERT INTO CARDS
+(ID,NAME, ATTACK, PROTECTION, PRICE)
+VALUES (5,'Knight',2,1,2) [42102-192]
+2016-08-05 06:36:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "CARDS" не найдена
+Table "CARDS" not found; SQL statement:
+INSERT INTO CARDS
+(ID,NAME, ATTACK, PROTECTION, PRICE)
+VALUES (6,'Pawn',1,1,1) [42102-192]
+2016-08-05 06:36:36 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Синтаксическая ошибка в выражении SQL "CREATE TABLE CARDS(
+            ID INT PRIMARY KEY  NOT NULL AUTO_INCREMENT[*],
+            NAME VARCHAR(255),
+            ATTACK INT,
+            PROTECTION INT,
+            PRICE INT)"; ожидалось "CHECK, REFERENCES, ,, )"
+Syntax error in SQL statement "CREATE TABLE CARDS(
+            ID INT PRIMARY KEY  NOT NULL AUTO_INCREMENT[*],
+            NAME VARCHAR(255),
+            ATTACK INT,
+            PROTECTION INT,
+            PRICE INT)"; expected "CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE CARDS(
+            ID INT PRIMARY KEY  NOT NULL AUTO_INCREMENT,
+            NAME VARCHAR(255),
+            ATTACK INT,
+            PROTECTION INT,
+            PRICE INT) [42001-192]
+2016-08-05 06:36:36 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Синтаксическая ошибка в выражении SQL "CREATE TABLE SETS(
+            ID INT PRIMARY KEY NOT NULL AUTO_INCREMENT[*],
+            NAME VARCHAR(255))"; ожидалось "CHECK, REFERENCES, ,, )"
+Syntax error in SQL statement "CREATE TABLE SETS(
+            ID INT PRIMARY KEY NOT NULL AUTO_INCREMENT[*],
+            NAME VARCHAR(255))"; expected "CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE SETS(
+            ID INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+            NAME VARCHAR(255)) [42001-192]
+2016-08-05 06:36:36 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "SETS" не найдена
+Table "SETS" not found; SQL statement:
+INSERT INTO SETS ('BASE') VALUES [42102-192]
+2016-08-05 06:36:36 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "CARDS" не найдена
+Table "CARDS" not found; SQL statement:
+INSERT INTO CARDS 
+(ID,NAME, ATTACK, PROTECTION, PRICE)
+VALUES (1,'King', 3, 5, 4) [42102-192]
+2016-08-05 06:36:36 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "CARDS" не найдена
+Table "CARDS" not found; SQL statement:
+INSERT INTO CARDS
+(ID,NAME, ATTACK, PROTECTION, PRICE)
+VALUES (2,'Queen',4,3,4) [42102-192]
+2016-08-05 06:36:36 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "CARDS" не найдена
+Table "CARDS" not found; SQL statement:
+INSERT INTO CARDS
+(ID,NAME, ATTACK, PROTECTION, PRICE)
+VALUES (3,'Rook',3,2,3) [42102-192]
+2016-08-05 06:36:36 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "CARDS" не найдена
+Table "CARDS" not found; SQL statement:
+INSERT INTO CARDS
+(ID,NAME, ATTACK, PROTECTION, PRICE)
+VALUES (4,'Bishop',2,4,3) [42102-192]
+2016-08-05 06:36:36 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "CARDS" не найдена
+Table "CARDS" not found; SQL statement:
+INSERT INTO CARDS
+(ID,NAME, ATTACK, PROTECTION, PRICE)
+VALUES (5,'Knight',2,1,2) [42102-192]
+2016-08-05 06:36:36 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "CARDS" не найдена
+Table "CARDS" not found; SQL statement:
+INSERT INTO CARDS
+(ID,NAME, ATTACK, PROTECTION, PRICE)
+VALUES (6,'Pawn',1,1,1) [42102-192]
+2016-08-05 06:37:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Синтаксическая ошибка в выражении SQL "INSERT INTO SETS ('BASE'[*]) VALUES"; ожидалось "identifier"
+Syntax error in SQL statement "INSERT INTO SETS ('BASE'[*]) VALUES"; expected "identifier"; SQL statement:
+INSERT INTO SETS ('BASE') VALUES [42001-192]

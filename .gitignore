@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 nbproject/private/
 build/
 nbbuild/
@@ -7,6 +5,5 @@ dist/
 nbdist/
 nbactions.xml
 .nb-gradle/
->>>>>>> inventory
 /nbproject/
 /target/

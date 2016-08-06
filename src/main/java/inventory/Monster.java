@@ -1,28 +1,23 @@
 package inventory;
 
-public enum Monster {
-    Empty(0, 0, 0, 0),
-    King(1, 1, 1, 1),
-    Queen(2, 1, 1, 1),
-    Rook(3, 1, 1, 1),
-    Bishop(4, 1, 1, 1),
-    Knight(5, 1, 1, 1),
-    Pawn(6, 1, 1, 1);
+public class Monster {
 
     private final int attack;
     private final int protection;
     private final int price;
     private final int id;
+    private final String name;
     private int hp;
     private Status status;
 
-    Monster(int id, int attack, int protection, int price) {
+    private Monster(int id, int attack, int protection, int price,String name) {
         this.id = id;
         this.attack = attack;
         this.protection = protection;
         this.price = price;
         this.hp = protection;
         this.status = Status.SUMMONS;
+        this.name = name;
     }
 
     public int getAttack() {
@@ -47,22 +42,20 @@ public enum Monster {
 
     public static Monster create(int idMonster) {
         switch (idMonster) {
-            case 0:
-                return Monster.Empty;
             case 1:
-                return Monster.King;
+                return new Monster(1,1,1,1,"King");
             case 2:
-                return Monster.Queen;
+                return new Monster(1,1,1,1,"Queen");
             case 3:
-                return Monster.Rook;
+                return new Monster(1,1,1,1,"Rook");
             case 4:
-                return Monster.King;
+                return new Monster(1,1,1,1,"King");
             case 5:
-                return Monster.Bishop;
+                return new Monster(1,1,1,1,"Bishop");
             case 6:
-                return Monster.Pawn;
+                return new Monster(1,1,1,1,"Pawn");
             default:
-                return Monster.Empty;
+                return new Monster(1,1,1,1,"Empty");
         }
     }
 
